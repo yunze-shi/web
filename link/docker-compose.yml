@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+    backend:
+        build: C:\Users\25447\Desktop\link\simple-api-student-main\
+        
+        networks:
+          ["my-network"]
+        
+
+        depends_on:
+          ["database"]
+
+    database:
+        build: C:\Users\25447\Desktop\link\database\
+        
+        networks:
+          ["my-network"]
+        
+            
+
+    httpd:
+        build: C:\Users\25447\Desktop\link\http\
+        
+        ports:
+          ["8080:80"]
+        networks:
+          ["my-network"]
+      
+
+
+        depends_on:
+          ["backend"]
+
+networks:
+    my-network:
