@@ -20,4 +20,4 @@ jobs:
             java-version: '19'
      #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn --file simple-api-student-main/pom.xml
