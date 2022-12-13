@@ -58,3 +58,15 @@ jobs:
          context: ./simple-api-student-main
          tags:  ${{secrets.DOCKER_USERNAME}}/simple-api
          push: ${{ github.ref == '.github/workflows/main' }}
+     - name: Build image and push database
+       uses: docker/build-push-action@v3
+       with:
+         context: ./database
+         tags:  ${{secrets.DOCKER_USERNAME}}/database
+         push: ${{ github.ref == '.github/workflows/main' }}
+     - name: Build image and push httpd
+       uses: docker/build-push-action@v3
+       with:
+         context: ./http
+         tags:  ${{secrets.DOCKER_USERNAME}}/http
+         push: ${{ github.ref == '.github/workflows/main' }}
