@@ -20,7 +20,7 @@ jobs:
             java-version: '19'
      #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=yunze -Dsonar.organization=yunzeshi -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_PASSPORD }}  --file ./simple-api-student-main/pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=yunze -Dsonar.organization=yunzeshi -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./simple-api-student-main/pom.xml
 
         
   build-and-push-docker-image:
