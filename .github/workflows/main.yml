@@ -50,3 +50,11 @@ jobs:
        with:
          context: ./http
          tags:  ${{secrets.DOCKER_USERNAME}}/http
+     - name: Login to DockerHub
+       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSPORD }}
+     - name: Build image and push backend
+       uses: docker/build-push-action@v3
+       with:
+         context: ./simple-api-student-main
+         tags:  ${{secrets.DOCKER_USERNAME}}/simple-api
+         push: ${{ github.ref == '.github/workflows/main' }}
