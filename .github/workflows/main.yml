@@ -42,6 +42,11 @@ jobs:
 
      - name: Build image and push database
        uses: docker/build-push-action@v3
-
+       with:
+         context: ./database
+         tags:  ${{secrets.DOCKER_USERNAME}}/database
      - name: Build image and push httpd
-       # DO the same for httpd
+       uses: docker/build-push-action@v3
+       with:
+         context: ./http
+         tags:  ${{secrets.DOCKER_USERNAME}}/http
